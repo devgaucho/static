@@ -1,0 +1,52 @@
+/*
+v0.1.0 (05mai2024): com tablemore.css
+- a,div,h1,h2,html,link,meta,p,script,source,span,title,table,td,tr
+*/
+
+.center{
+	text-align:center;
+}
+.container{
+	margin:0 auto;
+	max-width:100%;
+	width:800px;
+}
+.desktop{
+	visibility: visible;
+}
+.mobile{
+	display: none;
+	visibility: hidden;
+}
+a{
+	color:blue;
+}
+a:hover{
+	text-decoration: none;
+}
+body{
+	font-family:Arial,"Liberation Sans",sans-serif;
+	font-size:24px;
+}
+h1,h2{
+	text-align:center;
+}
+p{
+	margin-top: -0.25em;
+}
+td{
+	vertical-align: top;
+}
+@media all and (max-width: 799px) {
+	.container td {
+		display:inline-block;
+		width: 100%;
+	}
+	.desktop{
+		display: none;
+		visibility: hidden;
+	}
+	.mobile{
+		visibility: visible;
+	}
+}
