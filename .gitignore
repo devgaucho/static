@@ -1,0 +1,8 @@
+/db/*.sqlite3
+/.env
+/.idea
+/public/test*.php
+*.swp
+/test*.php
+/*.txt
+/vendor
