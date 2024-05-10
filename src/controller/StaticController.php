@@ -12,8 +12,8 @@ use src\Utils;
 class StaticController extends Utils
 {
 	function get(){
-		$file=parent::segment(3);
 		$hashRecebido=parent::segment(2);
+		$file=parent::segment(3);
 		$filename=parent::root();
 		$filename.='/static/'.$file;
 		if(
