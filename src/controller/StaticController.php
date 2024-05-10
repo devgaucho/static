@@ -16,7 +16,10 @@ class StaticController extends Utils
 		$hashRecebido=parent::segment(2);
 		$filename=parent::root();
 		$filename.='/static/'.$file;
-		if(file_exists($filename)){
+		if(
+			file_exists($filename)
+			AND is_file($filename)
+		){
 			$hashReal=md5_file($filename);
 			if($hashRecebido==$hashReal){
 				$this->imprimirArquivo($filename);
