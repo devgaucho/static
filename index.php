@@ -5,4 +5,10 @@
  * Time: 18:55
  */
 require 'vendor/autoload.php';
-print 'hello guest';
+use src\Utils;
+$Utils=new Utils();
+$Utils->env('.env');
+$Utils->showErrors($_ENV['SHOW_ERRORS']);
+if(!$Utils->isCli()){
+	$Utils->router();
+}
