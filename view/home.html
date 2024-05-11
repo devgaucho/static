@@ -13,4 +13,16 @@
             </form>
         </td>
     </tr>
+    <tr>
+        <td>
+            {{#mensagens}}
+            <div class="mensagem">
+                <p>
+                    {{mensagem}}
+                </p>
+                <small>{{created_at_h}}</small>
+            </div>
+            {{/mensagens}}
+        </td>
+    </tr>
 </table>
