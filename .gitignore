@@ -5,4 +5,3 @@
 *.swp
 /test*.php
 /*.txt
-/vendor
