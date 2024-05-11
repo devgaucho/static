@@ -215,6 +215,8 @@ class Utils{
 		}
 	}
 	function view($name,$data=[],$print=true){
+		$data['SITE_NAME']=$_ENV['SITE_NAME'];
+		$data['SITE_URL']=$_ENV['SITE_URL'];
 		$filename=$this->root().'/view/'.$name.'.html';
 		if(!file_exists($filename)){
 			die("view ".$filename.' not found');

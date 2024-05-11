@@ -12,6 +12,7 @@ use src\Utils;
 class HomeController extends Utils
 {
 	function get(){
-		parent::view('index',['name'=>'world']);
+		parent::view('inc/header',['title'=>'Static']);
+		parent::view('home');
 	}
 }
