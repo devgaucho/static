@@ -25,6 +25,8 @@
  * - verifica a permissão do db sqlite
  * v0.1.2
  * - chmod 666 no sqlite
+ * v0.1.3
+ * - chmod 777 no sqlite
  */
 
 namespace src;
@@ -73,7 +75,7 @@ class Utils{
 			$perms=@fileperms($filename);
 			$perms=@decoct($perms);
 			$perms=@substr($perms,-3);
-			$chmod='666';
+			$chmod='777';
 			if(!file_exists($filename) OR $perms<>$chmod){
 				$msg='touch "'.$filename;
 				$msg.='" && sudo chmod '.$chmod.' "';
