@@ -21,6 +21,8 @@
  * - segment($segmentId=null): retorna segmentos da url
  * - showErrors($bool=true): exibe os erros
  * - view($name,$data=[],$print=true): imprime a view via Chaplin
+ * v0.1.1 (14mai2024)
+ * - verifica a permissão do db sqlite
  */
 
 namespace src;
@@ -66,11 +68,15 @@ class Utils{
 		if($type=='sqlite'){
 			$filename=$this->root();
 			$filename.='/'.$_ENV['SQLITE_DB'];
-			if(!file_exists($filename)){
+			$perms=@fileperms($filename);
+			$perms=@decoct($perms);
+			$chmod=@substr($perms,-3);
+			if(!file_exists($filename) OR $chmod<>'777'){
 				$msg='touch "'.$filename;
 				$msg.='" && sudo chmod 777 "';
 				$msg.=$filename.'"';
-				$msg.=' && php bin/mig.php';
+				$msg.=' && php "';
+				$msg.=$this->root().'/bin/mig.php"';
 				die($msg);
 			}
 			$opts=[
