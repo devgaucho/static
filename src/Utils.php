@@ -70,6 +70,7 @@ class Utils{
 				$msg='touch "'.$filename;
 				$msg.='" && sudo chmod 777 "';
 				$msg.=$filename.'"';
+				$msg.=' && php bin/mig.php'
 				die($msg);
 			}
 			$opts=[
