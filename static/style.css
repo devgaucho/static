@@ -11,6 +11,8 @@ v0.1.4 (11mai2024)
 - form.vertical, input, small
 v0.1.5 (14mai2023)
 - classe .vertical removida
+v0.1.6
+- textarea width: calc(100% - 0.5em);
 */
 
 .center{
@@ -59,7 +61,7 @@ form textarea{
 	display: block;
 	font-size:24px;
 	margin: 0 auto;
-	width: 75%;
+	width: calc(100% - 0.5em);
 }
 h1 a,
 h2 a{
@@ -100,3 +102,4 @@ td{
 		visibility: visible;
 	}
 }
+
