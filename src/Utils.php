@@ -23,6 +23,8 @@
  * - view($name,$data=[],$print=true): imprime a view via Chaplin
  * v0.1.1 (14mai2024)
  * - verifica a permissão do db sqlite
+ * v0.1.2
+ * - chmod 666 no sqlite
  */
 
 namespace src;
@@ -70,10 +72,11 @@ class Utils{
 			$filename.='/'.$_ENV['SQLITE_DB'];
 			$perms=@fileperms($filename);
 			$perms=@decoct($perms);
-			$chmod=@substr($perms,-3);
-			if(!file_exists($filename) OR $chmod<>'777'){
+			$perms=@substr($perms,-3);
+			$chmod='666';
+			if(!file_exists($filename) OR $perms<>$chmod){
 				$msg='touch "'.$filename;
-				$msg.='" && sudo chmod 777 "';
+				$msg.='" && sudo chmod '.$chmod.' "';
 				$msg.=$filename.'"';
 				$msg.=' && php "';
 				$msg.=$this->root().'/bin/mig.php"';
