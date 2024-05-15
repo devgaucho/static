@@ -27,6 +27,8 @@
  * - chmod 666 no sqlite
  * v0.1.3
  * - chmod 777 no sqlite
+ * v0.2.0 (15mai2024)
+ * - pandoc($str,$in,$out)
  */
 
 namespace src;
@@ -147,6 +149,22 @@ class Utils{
 	}
 	function notFound(){
 		$this->controller('NotFound')->get();
+	}
+	function pandoc($str,$in,$out){
+		if(!is_string($str)){
+			return false;
+		}
+		$in=escapeshellarg($in);
+		$out=escapeshellarg($out);
+		// fix do LaTex (ex:\textit{texto em italico})
+		$str=str_replace('\\',"\\\\",$str);
+		$str=escapeshellarg($str);
+		$cmd="echo ".$str." | pandoc --from=".$in." --to=".$out;
+		ob_start();
+		passthru($cmd);
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
 	}
 	function redirect($url){
 		header('Location: '.$url);
