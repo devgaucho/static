@@ -1,28 +1,32 @@
-<table class="container">
-    <tr>
-        <td>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12 text-center">
             <h1>{{SITE_NAME}}</h1>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <form action="{{SITE_URL}}/mensagem" method="post">
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12 text-center">
+            <form action="{{SITE_URL}}/mensagem" method="post" >
                 <label for="mensagem">Mensagem</label>
-                <textarea name="mensagem" id="mensagem" rows="3"></textarea>
-                <input type="submit" value="Enviar">
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {{#mensagens}}
-            <div class="mensagem">
+                <textarea class="input-block-level" name="mensagem" id="mensagem" rows="3"></textarea>
                 <p>
-                    {{mensagem}}
+                    <input type="submit" class="btn btn-success btn-large" value="Enviar">
                 </p>
-                <small>{{created_at_h}}</small>
+            </form>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="mensagens">
+                {{#mensagens}}
+                <div class="mensagem">
+                    <p>
+                        {{mensagem}}
+                    </p>
+                    <small>{{created_at_h}}</small>
+                </div>
+                {{/mensagens}}
             </div>
-            {{/mensagens}}
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
